@@ -1,11 +1,21 @@
+import { Routes, Route } from "react-router-dom";
+import Login from "components/Login";
+import Signup from "components/Signup";
+import UserPage from "components/UserPage";
+import NotFound from "components/NotFound";
+
 function App() {
   return (
     <>
-     <h1 className="text-3xl font-bold underline">
+     <h1 className="text-center text-3xl font-bold">
       Hello world!
     </h1>
-      <p>Calendar</p>
-      <p>{import.meta.env.VITE_MESSAGING_SENDER_ID}</p>
+    <Routes>
+      <Route path="/" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
+      <Route path="/userpage" element={<UserPage/>}/>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
     </>
   );
 }
